@@ -8,6 +8,13 @@ import { checkSessionIdExists } from '../middlewares/check-session-id-exists'
 // Untegração: comunicação entre duas ou mais unidades
 // e2e - ponta a ponta: simulam um usuário operando na nossa aplicação
 
+
+// front-end: abre a página de login, digite o texto rosana@rockeseat.com.br  o campo com ID email. clique no botão
+// back-end: chamadas HTTO, WebSockets 
+
+// Pirâmide de testes: E2E (não dependem de nenhuma tecnologia, não dependem de arquitetura)
+// 2000 testes -> Testes E2e => 16min 
+
 export async function transactionsRoutes(app: FastifyInstance) {
     app.get('/', 
           {
