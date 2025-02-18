@@ -4,9 +4,13 @@
     ],
     
     "prettier/prettier": [
-    "error",
-    {
-        "endOfLine": "auto"
+        "error",
+        {
+            "endOfLine": "auto"
+        }
+    ],
+
+    "rules": {
+        "camelcase": "off"
     }
-]
 }
