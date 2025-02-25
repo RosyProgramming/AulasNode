@@ -21,8 +21,8 @@ describe('Check-in Use Case', () => {
       title: 'JavaScript Gym',
       description: '',
       phone: '',
-      latitude: new Decimal(0),
-      longitude: new Decimal(0),
+      latitude: new Decimal(-5.149087541917958),
+      longitude: new Decimal(-42.78785410545477),
     })
 
 
@@ -33,8 +33,8 @@ describe('Check-in Use Case', () => {
     const { checkIn } = await sut.execute({
       gymId: 'gym-01',
       userId: 'user-01',
-      userLatitude: -5.1863548,
-      userLongitude: -43.2321277,
+      userLatitude: -5.149087541917958,
+      userLongitude: -42.78785410545477,
     })
 
     expect(checkIn.id).toEqual(expect.any(String))
@@ -46,16 +46,16 @@ describe('Check-in Use Case', () => {
     await sut.execute({
       gymId: 'gym-01',
       userId: 'user-01',
-      userLatitude: -5.1863548,
-      userLongitude: -43.2321277,
+      userLatitude: -5.149087541917958,
+      userLongitude: -42.78785410545477,
     })
 
     await expect(() =>
       sut.execute({
         gymId: 'gym-01',
         userId: 'user-01',
-        userLatitude: -27.2092052,
-        userLongitude: -49.6401091,
+        userLatitude: -5.149087541917958,
+        userLongitude: -42.78785410545477,
       }),
     ).rejects.toBeInstanceOf(Error)
   })
@@ -66,8 +66,8 @@ describe('Check-in Use Case', () => {
     await sut.execute({
       gymId: 'gym-01',
       userId: 'user-01',
-      userLatitude: -5.1863548,
-      userLongitude: -43.2321277,
+      userLatitude: -5.149087541917958,
+      userLongitude: -42.78785410545477,
     })
 
     vi.setSystemTime(new Date(2022, 0, 21, 8, 0, 0))
@@ -75,11 +75,31 @@ describe('Check-in Use Case', () => {
     const { checkIn } = await sut.execute({
       gymId: 'gym-01',
       userId: 'user-01',
-      userLatitude: -5.1863548,
-      userLongitude: -43.2321277,
+      userLatitude: -5.149087541917958,
+      userLongitude: -42.78785410545477,
     })
 
     expect(checkIn.id).toEqual(expect.any(String))
+  })
+
+  it('should not be able to check in on distant gym', async () => {
+    gymsRepository.items.push({
+      id: 'gym-02',
+      title: 'JavaScript Gym',
+      description: '',
+      phone: '',
+      latitude: new Decimal(-5.145930755062344),
+      longitude: new Decimal(-42.78605413244685),
+    })
+
+    await expect(() =>
+      sut.execute({
+        gymId: 'gym-02',
+        userId: 'user-01',
+        userLatitude: -5.145930755062344,
+        userLongitude: -42.78605413244685,
+      }),
+    ).rejects.toBeInstanceOf(Error)
   })
 
 })
