@@ -21,8 +21,8 @@ describe('Check-in Use Case', () => {
       title: 'JavaScript Gym',
       description: '',
       phone: '',
-      latitude: new Decimal(-5.149087541917958),
-      longitude: new Decimal(-42.78785410545477),
+      latitude: new Decimal(0),
+      longitude: new Decimal(0),
     })
 
 
