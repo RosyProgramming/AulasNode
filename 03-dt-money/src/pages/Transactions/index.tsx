@@ -7,7 +7,7 @@ import { TransactionsContext } from "../../contexts/TransactionsContext";
 
 export function Transactions() {
   const { transactions } = useContext(TransactionsContext)
-  
+
   return (
     <div>
       <Header />
@@ -21,7 +21,7 @@ export function Transactions() {
                 <tr key={transaction.id}>
                   <td width="50%">{transaction.description}</td>
                   <td>
-                    <PriceHighlight variant={transaction.type}>
+                    <PriceHighlight $variant={transaction.type}>
                       {transaction.price}
                     </PriceHighlight>
                   </td>
