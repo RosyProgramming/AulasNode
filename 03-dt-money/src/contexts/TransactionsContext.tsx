@@ -17,6 +17,7 @@ interface TransactionsProviderProps {
   children: ReactNode
 }
 
+// eslint-disable-next-line react-refresh/only-export-components
 export const TransactionsContext = createContext({} as TransactionContextType);
 
 export function TransactionsProvider({ children }: TransactionsProviderProps) {
