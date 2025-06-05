@@ -39,6 +39,14 @@
       "type": "outcome",
       "createdAt": "2025-06-04T03:17:54.767Z",
       "id": 5
+    },
+    {
+      "description": "celular",
+      "price": 4000,
+      "category": "tecnologia",
+      "type": "outcome",
+      "createdAt": "2025-06-04T03:41:58.087Z",
+      "id": 6
     }
   ]
 }
