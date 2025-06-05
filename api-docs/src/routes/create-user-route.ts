@@ -38,7 +38,7 @@ export const createUserRoute: FastifyPluginAsyncZod = async (app) => {
     },
     (request) => {
       const { } = request.body
-      return { teste: '123' }
+      return { userId: '123' }
     },
   );
 }
